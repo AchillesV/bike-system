@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Row, Col} from 'antd';
+import Header from './components/Header/index';
+import Footer from './components/Footer/index';
+import NavLeft from './components/NavLeft/index';
+import './style/common.less';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Row className="container">
+      <Col span="5" className="nav-left">
+        <NavLeft />
+      </Col>
+      <Col span="19" className="main">
+        <Header />
+        <Row>
+          {this.props.children}
+        </Row>
+        <Footer />
+      </Col>
+
+    </Row>
   );
 }
 
